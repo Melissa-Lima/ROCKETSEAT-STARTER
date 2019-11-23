@@ -17,6 +17,7 @@ function temHabilidade2(skills) {
 
 var skills1 = ["Javascript", "ReactJS", "React Native"];
 var skills2 = ["Python", "Django", "Flask"];
+
 console.log(temHabilidade(skills1)); // true ou false
 console.log(temHabilidade(skills2)); // true ou false
 console.log(temHabilidade2(skills1)); // true ou false
