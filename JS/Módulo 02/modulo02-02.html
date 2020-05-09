@@ -1,0 +1,66 @@
+<!--Crie um botão que ao ser clicado cria um novo elemento em tela com a forma de um quadrado
+vermelho com 100px de altura e largura. Sempre que o botão for clicado um novo quadrado deve
+aparecer na tela.-->
+
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <meta http-equiv="X-UA-Compatible" content="ie=edge">
+    <title>Módulo 02 - Exercício 02</title>
+</head>
+
+<body>
+    <div id="red-button"></div>
+
+    <div id="buttons"></div>
+
+    <script>
+        var div = document.querySelector('#red-button');
+        var mainBtn = document.createElement('button');
+        mainBtn.setAttribute("type", "button");
+        mainBtn.id = "mainBtn"
+        div.appendChild(mainBtn);
+
+        mainBtn.setAttribute("onClick", "criaBotao()");
+
+        mainBtn.style.width = "100px";
+        mainBtn.style.height = "100px";
+        mainBtn.style.backgroundColor = "red";
+        mainBtn.style.margin = "3px";
+
+        function criaBotao() {
+            var newSquare = document.createElement('span');
+            var buttons = document.getElementById('buttons')
+            newSquare.style.display = "inline-block";
+            newSquare.style.width = "100px";
+            newSquare.style.height = "100px";
+            newSquare.style.backgroundColor = "red";
+            newSquare.style.margin = "3px";
+            newSquare.setAttribute("class", "square");
+            //newSquare.setAttribute("onmouseover", "changeBgColor(this)");  //esse aqui deu muito rolê
+            newSquare.onmouseover = function() {
+                newSquare.style.backgroundColor = getRandomColor();
+            } 
+            buttons.appendChild(newSquare);
+        };
+
+        function getRandomColor() {
+            var letters = "0123456789ABCDEF";
+            var color = "#";
+            for (var i = 0; i < 6; i++) {
+                color += letters[Math.floor(Math.random() * 16)];
+            }
+            return color;
+        };
+
+        function changeBgColor(elem) {
+            elem.style.backgroundColor = getRandomColor();
+        };
+
+    </script>
+</body>
+
+</html>
