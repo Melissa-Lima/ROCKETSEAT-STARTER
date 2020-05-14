@@ -1,0 +1,44 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>MÓDULO 02 - EXERCÍCIO 03</title>
+</head>
+<body>
+    <div>
+        <input type="text" name="nome" id="nome"><button onClick="adicionar()">Adicionar</button>
+    </div>
+    <div id="lista">
+        <ul></ul>
+    </div>
+
+    <script>
+        var nomes = ["Ilya", "Vladimir", "Sergey"];
+        var divLista = document.querySelector("#lista");
+        var ulElement = document.getElementById("lista").firstElementChild;
+        
+        function addItems(lista,ulItem) {
+            for (let item of lista) {
+                addItemToUl(item,ulItem);
+            }
+        };
+
+        function addItemToUl(item,ulItem) {
+            var newLiItem = document.createElement("li");
+            var itemText = document.createTextNode(item);
+            newLiItem.appendChild(itemText);
+            ulItem.appendChild(newLiItem);  
+        }
+
+        function adicionar(){
+            var novoNome = document.getElementById("nome").value;
+            nomes.push(novoNome);
+            addItemToUl(novoNome,ulElement);     
+        };
+        
+        addItems(nomes,ulElement)
+        
+    </script>
+</body>
+</html>
